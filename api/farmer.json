@@ -1,0 +1,96 @@
+{
+  "farmer": [
+    {
+      "farm_name": "Fazenda Boa Terra",
+      "location": "São Paulo, Brasil",
+      "production": {
+        "production_id": 111,
+        "product_type": "Tomate",
+        "sowing_type": "standard",
+        "sowing_date": "2024-07-15",
+        "expected_harvest_date": "2024-09-15",
+        "quantity": 1000,
+        "sensor": [
+          {
+            "sensor_id": "100",
+            "sensor_data": [
+              {
+                "date": "2024-07-16",
+                "time": "14:00",
+                "pressure": 1008.12,
+                "temperature": 29.4,
+                "humidity": 65.95
+              },
+              {
+                "date": "2024-07-16",
+                "time": "14:01",
+                "pressure": 1009.01,
+                "temperature": 29.5,
+                "humidity": 60.93
+              },
+              {
+                "date": "2024-07-16",
+                "time": "14:02",
+                "pressure": 1007.11,
+                "temperature": 29.4,
+                "humidity": 55.75
+              }
+            ]
+          },
+          {
+            "sensor_id": "101",
+            "sensor_data": [
+              {
+                "date": "2024-07-16",
+                "time": "14:00",
+                "pressure": 1003.12,
+                "temperature": 29.4,
+                "humidity": 54.35
+              },
+              {
+                "date": "2024-07-16",
+                "time": "14:01",
+                "pressure": 1003.01,
+                "temperature": 29.5,
+                "humidity": 60.24
+              },
+              {
+                "date": "2024-07-16",
+                "time": "14:02",
+                "pressure": 1003.58,
+                "temperature": 29.4,
+                "humidity": 60.33
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "farm_name": "Fazenda Terra Fértil",
+      "location": "Minas Gerais, Brasil",
+      "production": {
+        "production_id": 200,
+        "product_type": "Morango",
+        "sowing_type": "standard",
+        "sowing_date": "2024-06-10",
+        "expected_harvest_date": "2024-09-10",
+        "quantity": 1000,
+        "sensor": [
+          {
+            "sensor_id": "001",
+            "sensor_data": [
+              {
+                "date": "2024-07-16",
+                "time": "14:00",
+                "pressure": 687.12,
+                "temperature": 13.4,
+                "humidity": 54.35
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

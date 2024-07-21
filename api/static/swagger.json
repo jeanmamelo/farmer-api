@@ -1,0 +1,209 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample Farmer API documentation.",
+    "version": "1.0.0",
+    "title": "Farmer API"
+  },
+  "host": "127.0.0.1:5000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "farmers",
+      "description": "Operations related to farmers"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/farmers": {
+      "get": {
+        "tags": ["farmers"],
+        "summary": "Get all farmers",
+        "responses": {
+          "200": {
+            "description": "A list of farmers",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Farmer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/farmer/{farm_name}": {
+      "get": {
+        "tags": ["farmers"],
+        "summary": "Get a farmer by name",
+        "parameters": [
+          {
+            "name": "farm_name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Name of the farm"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A farmer object",
+            "schema": {
+              "$ref": "#/definitions/Farmer"
+            }
+          },
+          "404": {
+            "description": "Farmer not found"
+          }
+        }
+      }
+    },
+    "/farmer/{farm_name}/production": {
+      "get": {
+        "tags": ["farmers"],
+        "summary": "Get production data for a specific farm",
+        "parameters": [
+          {
+            "name": "farm_name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Name of the farm"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Production data of the farm",
+            "schema": {
+              "$ref": "#/definitions/Production"
+            }
+          },
+          "404": {
+            "description": "Production data not found"
+          }
+        }
+      }
+    },
+    "/farmer/{farm_name}/sensor/{sensor_id}": {
+      "get": {
+        "tags": ["farmers"],
+        "summary": "Get sensor data for a specific farm",
+        "parameters": [
+          {
+            "name": "farm_name",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Name of the farm"
+          },
+          {
+            "name": "sensor_id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID of the sensor"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sensor data",
+            "schema": {
+              "$ref": "#/definitions/Sensor"
+            }
+          },
+          "404": {
+            "description": "Sensor data not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Farmer": {
+      "type": "object",
+      "properties": {
+        "farm_name": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "production": {
+          "$ref": "#/definitions/Production"
+        }
+      }
+    },
+    "Production": {
+      "type": "object",
+      "properties": {
+        "production_id": {
+          "type": "integer"
+        },
+        "product_type": {
+          "type": "string"
+        },
+        "sowing_type": {
+          "type": "string"
+        },
+        "sowing_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "expected_harvest_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "quantity": {
+          "type": "integer"
+        },
+        "sensor": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Sensor"
+          }
+        }
+      }
+    },
+    "Sensor": {
+      "type": "object",
+      "properties": {
+        "sensor_id": {
+          "type": "string"
+        },
+        "farm_name": {
+          "type": "string"
+        },
+        "sensor_data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SensorData"
+          }
+        }
+      }
+    },
+    "SensorData": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "time": {
+          "type": "string",
+          "format": "time"
+        },
+        "pressure": {
+          "type": "number"
+        },
+        "temperature": {
+          "type": "number"
+        },
+        "humidity": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}
